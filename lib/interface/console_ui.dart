@@ -65,8 +65,11 @@ Future<Coup> saisirCoup(int taille) async {
     stdout.write("Quelle ligne jouez-vous   [0..${taille - 1}] : ");
     try {
       ligne = int.parse(await saisirLigne());
+      //une case qui n'a pas de bombe
+      //Si la personne avait marquée la case, on ne fait rien
+      //sinon, on découvre la case, ainsi que ses voisines
     } catch (e) {
-      ligne = -1;
+      ligne = -1;   
     }
   } while (ligne < 0 || ligne >= taille);
   do {
